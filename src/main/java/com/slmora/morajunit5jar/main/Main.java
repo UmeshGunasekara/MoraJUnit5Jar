@@ -1,19 +1,29 @@
-/**
+/*
  * Created by IntelliJ IDEA.
- * Author: SLMORA
- * Date Time: 2/22/2020 3:13 PM
+ * @Author: SLMORA
+ * @DateTime: 2/22/2020 3:13 PM
  */
 package com.slmora.morajunit5jar.main;
 
 /**
  * This class of the main class of the application
+ *
+ * @Author: SLMORA
+ * @DateTime: 2/22/2020 3:13 PM
+ *
+ * Version      Date            Editor              Note
+ * ---------    ----------      ----------------    --------------------------------------------------------------------
+ * 1.0          2020-02-22      MORA                Initial Code
+ *
  */
-public class Main {
+public class Main
+{
 
     /**
      * The main method of the application
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Calculator cal=new Calculator();
         int result=cal.add(1, 2);
 
@@ -28,6 +38,6 @@ public class Main {
 
     }
 }
-/**
+/*
  *
  */

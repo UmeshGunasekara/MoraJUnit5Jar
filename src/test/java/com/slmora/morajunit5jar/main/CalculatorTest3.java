@@ -1,7 +1,7 @@
-/**
+/*
  * Created by IntelliJ IDEA.
- * Author: SLMORA
- * Date Time: 2/23/2020 11:27 AM
+ * @Author: SLMORA
+ * @DateTime: 2/23/2020 11:27 AM
  */
 package com.slmora.morajunit5jar.main;
 
@@ -13,10 +13,19 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * This Class related with com.slmora.morajunit5jar.main.Calculator for testing
  * Learn for manage the LifeCycle of test instance creation
+ *
+ * @Author: SLMORA
+ * @DateTime: 2/23/2020 11:27 AM
+ *
+ * Version      Date            Editor              Note
+ * ---------    ----------      ----------------    --------------------------------------------------------------------
+ * 1.0          2020-02-23      SLMORA                Initial Code
+ *
  */
 //@TestInstance(TestInstance.Lifecycle.PER_METHOD)//Default
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class CalculatorTest3 {
+public class CalculatorTest3
+{
     Calculator cal;
 
     /**
@@ -25,7 +34,8 @@ public class CalculatorTest3 {
      * If the Lifecycle is PER_CLASS the BeforeAll dont want to be static
      * */
     @BeforeAll
-    public void beforeAllInit(){
+    public void beforeAllInit()
+    {
         System.out.println("Before All Initiated........");
     }
 
@@ -33,7 +43,8 @@ public class CalculatorTest3 {
      * Initiate the Calculator object before each test execution
      * */
     @BeforeEach
-    private void beforeEachInit(){
+    private void beforeEachInit()
+    {
         this.cal=new Calculator();
         System.out.println("Before Each Calculator Initiated........");
     }
@@ -42,7 +53,8 @@ public class CalculatorTest3 {
      * Runs this method after each test execution
      * */
     @AfterEach
-    private void afterEachEnd(){
+    private void afterEachEnd()
+    {
         System.out.println("After Each Clean Test........");
     }
 
@@ -51,7 +63,8 @@ public class CalculatorTest3 {
      * Removed the Calculator object initialization to init() method which annotated by @BeforeEach
      * */
     @Test
-    public void testAdd01(){
+    public void testAdd01()
+    {
         int expected = 3;
         int result = cal.add(1, 2);
         assertEquals(expected, result);
@@ -63,7 +76,8 @@ public class CalculatorTest3 {
      * */
     @Test
     @Disabled
-    public void testAdd02(){
+    public void testAdd02()
+    {
         int expected = 2;
         int result = cal.add(1, 2);
         assertEquals(expected, result);
@@ -74,7 +88,8 @@ public class CalculatorTest3 {
      * Removed the Calculator object initialization to init() method which annotated by @BeforeEach
      * */
     @Test
-    public void testAdd03(){
+    public void testAdd03()
+    {
         int expected = 3;
         int result = cal.add(1, 2);
         assertEquals(expected, result, "Add method should add two numbers");
@@ -86,7 +101,8 @@ public class CalculatorTest3 {
      * Removed the Calculator object initialization to init() method which annotated by @BeforeEach
      * */
     @Test
-    public void testGetAreaOfCircle01(){
+    public void testGetAreaOfCircle01()
+    {
         double expected = 28.274333882308138;
         double result = cal.getAreaOfCircle(3);
         assertEquals(expected, result, "Get area of the circle for given radius");
@@ -97,7 +113,8 @@ public class CalculatorTest3 {
      * Removed the Calculator object initialization to init() method which annotated by @BeforeEach
      * */
     @Test
-    public void testDevide01(){
+    public void testDevide01()
+    {
         int expected = 2;
         int result = cal.devide(4, 2);
         assertEquals(expected, result, "Device method should devide two numbers");
@@ -108,7 +125,8 @@ public class CalculatorTest3 {
      * Removed the Calculator object initialization to init() method which annotated by @BeforeEach
      * */
     @Test
-    public void testDevide02(){
+    public void testDevide02()
+    {
         assertThrows(ArithmeticException.class,
                 () -> cal.devide(4, 0),
                 "Device method should devide two numbers");
@@ -120,10 +138,11 @@ public class CalculatorTest3 {
      * If the Lifecycle is PER_CLASS the AfterAll dont want to be static
      * */
     @AfterAll
-    public void AfterAllInit(){
+    public void AfterAllInit()
+    {
         System.out.println("After All Initiated........");
     }
 }
-/**
+/*
  *
  */

@@ -1,7 +1,7 @@
-/**
+/*
  * Created by IntelliJ IDEA.
- * Author: SLMORA
- * Date Time: 2/23/2020 10:07 AM
+ * @Author: SLMORA
+ * @DateTime: 2/23/2020 10:07 AM
  */
 package com.slmora.morajunit5jar.main;
 
@@ -17,9 +17,18 @@ import static org.junit.jupiter.api.Assumptions.*;
 /**
  * This Class related with com.slmora.morajunit5jar.main.Calculator for testing
  * Learn for @BeforeEach, @AfterEach, @BeforeAll and @AfterAll LifeCycle hook of the JUnit 5
+ *
+ * @Author: SLMORA
+ * @DateTime: 2/23/2020 10:07 AM
+ *
+ * Version      Date            Editor              Note
+ * ---------    ----------      ----------------    --------------------------------------------------------------------
+ * 1.0          2020-02-22      SLMORA                Initial Code
+ *
  */
 @DisplayName("Testing of the com.slmora.morajunit5jar.main.Calculator")
-public class CalculatorTest2 {
+public class CalculatorTest2
+{
 
     Calculator cal;
 
@@ -28,7 +37,8 @@ public class CalculatorTest2 {
      * This must be static because of this will execute before crete s the instance of this class
      * */
     @BeforeAll
-    public static void beforeAllInit(){
+    public static void beforeAllInit()
+    {
         System.out.println("Before All Initiated........");
     }
 
@@ -36,7 +46,8 @@ public class CalculatorTest2 {
      * Initiate the Calculator object before each test execution
      * */
     @BeforeEach
-    private void beforeEachInit(){
+    private void beforeEachInit()
+    {
         this.cal=new Calculator();
         System.out.println("Before Each Calculator Initiated........");
     }
@@ -45,7 +56,8 @@ public class CalculatorTest2 {
      * Runs this method after each test execution
      * */
     @AfterEach
-    private void afterEachEnd(){
+    private void afterEachEnd()
+    {
         System.out.println("After Each Clean Test........");
     }
 
@@ -55,7 +67,8 @@ public class CalculatorTest2 {
      * */
     @Test
     @DisplayName("Test Add Method with input values 1, 2 for Expected 3")
-    public void testAdd01(){
+    public void testAdd01()
+    {
         int expected = 3;
         int result = cal.add(1, 2);
         assertEquals(expected, result);
@@ -68,7 +81,8 @@ public class CalculatorTest2 {
     @Test
     @DisplayName("Test Add Method with input values 1, 2 for Expected 2")
     @Disabled
-    public void testAdd02(){
+    public void testAdd02()
+    {
         int expected = 2;
         int result = cal.add(1, 2);
         assertEquals(expected, result);
@@ -80,7 +94,8 @@ public class CalculatorTest2 {
      * */
     @Test
     @DisplayName("Test Add Method with input values 1, 2 for Expected 3 with Comment")
-    public void testAdd03(){
+    public void testAdd03()
+    {
         int expected = 3;
         int result = cal.add(1, 2);
         assertEquals(expected, result, "Add method should add two numbers");
@@ -93,7 +108,8 @@ public class CalculatorTest2 {
 //    @Test
     @RepeatedTest(3)
     @DisplayName("Test Add Method with input values 1, 2 for Expected 3 with Comment 3 time repeat")
-    public void testAdd04(){
+    public void testAdd04()
+    {
         int expected = 3;
         int result = cal.add(1, 2);
         assertEquals(expected, result, "Add method should add two numbers");
@@ -106,7 +122,8 @@ public class CalculatorTest2 {
 //    @Test
     @RepeatedTest(4)
     @DisplayName("Test Add Method with input values 1, 2 for Expected 3 with Comment")
-    public void testAdd05(RepetitionInfo repetitionInfo){
+    public void testAdd05(RepetitionInfo repetitionInfo)
+    {
         if(repetitionInfo.getCurrentRepetition()==1){
             int expected = 4;
             int result = cal.add(2, 2);
@@ -127,7 +144,8 @@ public class CalculatorTest2 {
     @Test
     @Tag("Math")
     @DisplayName("Test Add Method Taged 'Math' with input values 1, 2 for Expected 3 with Comment")
-    public void testAdd06(){
+    public void testAdd06()
+    {
         int expected = 3;
         int result = cal.add(1, 2);
         assertEquals(expected, result, "Add method should add two numbers");
@@ -139,13 +157,15 @@ public class CalculatorTest2 {
      * */
     @Nested
     @DisplayName("Testing of the method add()")
-    class AdddTest{
+    class AdddTest
+    {
         /**
          * Test the add() method with input values 2, 2 for expected 4 with comment
          * */
         @Test
         @DisplayName("Test Add Method with input values 2, 2 for Expected 3 with Comment")
-        public void testAddSub01(){
+        public void testAddSub01()
+        {
             int expected = 4;
             int result = cal.add(2, 2);
             assertEquals(expected, result, "Add method should add two numbers");
@@ -156,7 +176,8 @@ public class CalculatorTest2 {
          * */
         @Test
         @DisplayName("Test Add Method with input values -2, -2 for Expected -4 with Comment")
-        public void testAddSub02(){
+        public void testAddSub02()
+        {
             int expected = -4;
             int result = cal.add(-2, -2);
             assertEquals(expected, result, "Add method should add two numbers");
@@ -170,7 +191,8 @@ public class CalculatorTest2 {
      * */
     @Test
     @DisplayName("Test Get Area of Circle Method with input radius 3 for Expected 28.274333882308138 with comment")
-    public void testGetAreaOfCircle01(){
+    public void testGetAreaOfCircle01()
+    {
         double expected = 28.274333882308138;
         double result = cal.getAreaOfCircle(3);
         assertEquals(expected, result, "Get area of the circle for given radius");
@@ -185,7 +207,8 @@ public class CalculatorTest2 {
     @Test
     @DisplayName("Test Get Area of Circle Method in OS LINUX with input radius 3 for Expected 28.274333882308138 with comment")
     @EnabledOnOs(OS.LINUX)
-    public void testGetAreaOfCircle02(){
+    public void testGetAreaOfCircle02()
+    {
         double expected = 28.284333882308138;
         double result = cal.getAreaOfCircle(3);
         assertEquals(expected, result, "Get area of the circle for given radius");
@@ -199,7 +222,8 @@ public class CalculatorTest2 {
      * */
     @Test
     @DisplayName("Test Get Area of Circle Method Assumimg PI = 3.14 with input radius 2 for Expected 12.56 with comment")
-    public void testGetAreaOfCircle03(){
+    public void testGetAreaOfCircle03()
+    {
         assumeTrue(Math.PI==3.14);
         double expected = 12.56;
         double result = cal.getAreaOfCircle(2);
@@ -215,7 +239,8 @@ public class CalculatorTest2 {
     @Test
     @Disabled
     @DisplayName("Test Get Area of Circle Method Assumimg PI = 3.14 with input radius 2 for Expected 12.56 with Supplier comment")
-    public void testGetAreaOfCircle04(){
+    public void testGetAreaOfCircle04()
+    {
         double expected = 12.56;
         double result = cal.getAreaOfCircle(2);
         assertEquals(expected, result, () -> "Get area of the circle for given radius 2 expected "+expected+" but result is "+result);
@@ -228,7 +253,8 @@ public class CalculatorTest2 {
      * */
     @Test
     @DisplayName("Test Devide Method with input values 4, 2 for Expected 2 with comment")
-    public void testDevide01(){
+    public void testDevide01()
+    {
         int expected = 2;
         int result = cal.devide(4, 2);
         assertEquals(expected, result, "Device method should devide two numbers");
@@ -240,7 +266,8 @@ public class CalculatorTest2 {
      * */
     @Test
     @DisplayName("Test Devide Method with input values 4, 0 for Expected ArithmeticException with comment")
-    public void testDevide02(){
+    public void testDevide02()
+    {
         assertThrows(ArithmeticException.class,
                 () -> cal.devide(4, 0),
                 "Device method should devide two numbers");
@@ -253,7 +280,8 @@ public class CalculatorTest2 {
     @Test
     @DisplayName("Test Devide Method in JRE 8 with input values 4, 0 for Expected ArithmeticException with comment")
     @EnabledOnJre(JRE.JAVA_8)
-    public void testDevide03(){
+    public void testDevide03()
+    {
         assertThrows(ArithmeticException.class,
                 () -> cal.devide(4, 0),
                 "Device method should devide two numbers");
@@ -265,7 +293,8 @@ public class CalculatorTest2 {
      * */
     @Test
     @DisplayName("Test Devide Method For multiple assertions")
-    public void testDevide04(){
+    public void testDevide04()
+    {
         assertAll(
                 () -> assertThrows(ArithmeticException.class,
                         () -> cal.devide(4, 0),
@@ -284,7 +313,8 @@ public class CalculatorTest2 {
     @Test
     @DisplayName("Not Implemented yet Test Multiply Method with input values 4, 2 for Expected 8 with comment")
     @Disabled
-    public void testMultiply01(){
+    public void testMultiply01()
+    {
         fail("This is in TDD not implemented case yet so made as a disabled method");
     }
 
@@ -293,7 +323,8 @@ public class CalculatorTest2 {
      * This must be static because of this will execute after instance destroyed
      * */
     @AfterAll
-    public static void AfterAllInit(){
+    public static void AfterAllInit()
+    {
         System.out.println("After All Initiated........");
     }
 
